@@ -10,14 +10,12 @@ class Trie {
         this.root = new TrieNode()
     }
 
-
     Insert(word) {
         let curr = this.root
         for (let char of word) {
             if (!curr.children[char]) {
                 curr.children[char] = new TrieNode()
             }
-
             curr = curr.children[char]
         }
         curr.endOfWord = true
@@ -29,13 +27,10 @@ class Trie {
             if (!node.children[char]) {
                 return false
             }
-
             node = node.children[char]
         }
         return node.endOfWord
     }
-
-
 
     // print word as array
 
@@ -43,12 +38,10 @@ class Trie {
         if (node.endOfWord) {
             res.push(currWord)
         }
-
         for (let char in node.children) {
             this.printWords(node.children[char], currWord + char, res)
         }
         return res
-
     }
 
     // auto complete
@@ -61,7 +54,6 @@ class Trie {
             }
             node = node.children[char]
         }
-
         let list = []
         this.collectWord(node, word, list)
         return list
@@ -76,13 +68,9 @@ class Trie {
         }
     }
 
-
     // delete operation
-
-
     delete(word) {
         this.deleteHelper(this.root, word, 0)
-
     }
 
     deleteHelper(node, word, index) {
@@ -91,15 +79,11 @@ class Trie {
                 return false
             }
             node.endOfWord = false
-
             return Object.keys(node.children).length === 0
         }
-
         let char = word[index]
         if (!node.children[char]) return false
-
         let deleteChild = this.deleteHelper(node.children[char], word, index + 1)
-
         if (deleteChild) {
             delete node.children[char]
             return Object.keys(node.children).length === 0 && !node.endOfWord

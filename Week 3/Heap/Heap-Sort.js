@@ -39,7 +39,7 @@ class MinHeap {
             if (leftIndex < length && this.heap[leftIndex] < this.heap[smallest]) {
                 smallest = leftIndex
             }
-            if (rightIndex < length && this.heap[rightIndex] < this.heap[smallest]) {
+            if (rightIndex < length &&o,iklpikik, this.heap[rightIndex] < this.heap[smallest]) {
                 smallest = rightIndex
             }
             if (smallest === index) {

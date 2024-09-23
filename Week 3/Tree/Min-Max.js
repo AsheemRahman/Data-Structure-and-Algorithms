@@ -68,5 +68,5 @@ bst.insert(13);
 bst.insert(17);
 bst.insert(2);
 
-console.log(bst.min());
-console.log(bst.max());
+console.log(bst.min(bst.root));
+console.log(bst.max(bst.root));
