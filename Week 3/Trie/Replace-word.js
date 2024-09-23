@@ -21,24 +21,20 @@ class Trie {
         curr.endOfWord = true
     }
 
-    countWord(node = this.root) {
-        let count = 0
-        if (node.endOfWord) {
-            count++
-        }
-        for (let char in node.children) {
-            count += this.countWord(node.children[char])
-        }
-        return count
-    }
+    // replace the word in trie
 
+    replace(oldWord, newWord) {
+        if (this.search(oldWord)) {
+            this.delete(oldWord)
+            this.Insert(newWord)
+        }
+    }
 }
 
 const trie = new Trie()
-
 trie.Insert("catepiller")
 trie.Insert("cat")
 trie.Insert("car")
 trie.Insert("dog")
 
-console.log(trie.countWord())
+trie.replace("dog", "dove")
