@@ -38,7 +38,7 @@ class Hashtable {
 
 const table = new Hashtable(50)
 table.set("name", "abcdef")
-table.set("age", 25)    
+table.set("age", 25)
 table.display()
 console.log(table.get("name"))
 table.remove("name")
