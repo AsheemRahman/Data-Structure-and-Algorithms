@@ -21,17 +21,6 @@ class Trie {
         curr.endOfWord = true
     }
 
-    search(word) {
-        let node = this.root
-        for (let char of word) {
-            if (!node.children[char]) {
-                return false
-            }
-            node = node.children[char]
-        }
-        return node.endOfWord
-    }
-
     // print word as array
 
     printWords(node = this.root, currWord = "", res = []) {
@@ -54,5 +43,3 @@ trie.Insert("band")
 trie.Insert("bandit")
 
 console.log(trie.printWords())
-console.log(trie.printWords())
-console.log(trie.search("app"))

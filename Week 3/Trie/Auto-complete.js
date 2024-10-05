@@ -21,30 +21,30 @@ class Trie {
         curr.endOfWord = true
     }
 
-    search(word) {
+    // auto complete
+
+    autoComplete(word) {
         let node = this.root
         for (let char of word) {
             if (!node.children[char]) {
-                return false
+                return []
             }
             node = node.children[char]
         }
-        return node.endOfWord
+        let list = []
+        this.collectWord(node, word, list)
+        return list
     }
 
-    // print word as array
-
-    printWords(node = this.root, currWord = "", res = []) {
+    collectWord(node, word, list) {
         if (node.endOfWord) {
-            res.push(currWord)
+            list.push(word)
         }
         for (let char in node.children) {
-            this.printWords(node.children[char], currWord + char, res)
+            this.collectWord(node.children[char], word + char, list)
         }
-        return res
     }
 }
-
 
 let trie = new Trie()
 trie.Insert("apple")
@@ -53,6 +53,5 @@ trie.Insert("banana")
 trie.Insert("band")
 trie.Insert("bandit")
 
-console.log(trie.printWords())
-console.log(trie.printWords())
-console.log(trie.search("app"))
+console.log(trie.autoComplete("ban"))
+console.log(trie.autoComplete("bat"))

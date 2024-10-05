@@ -29,14 +29,18 @@ class Trie {
             }
             node = node.children[char]
         }
-        return true
+        return node.endOfWord
     }
 }
 
-const trie = new Trie()
-trie.Insert("catepiller")
-trie.Insert("cat")
-trie.Insert("car")
-trie.Insert("dog")
 
-console.log(trie.search("dog"))
+let trie = new Trie()
+trie.Insert("apple")
+trie.Insert("app")
+trie.Insert("banana")
+trie.Insert("band")
+trie.Insert("bandit")
+
+console.log(trie.search("apple"))
+console.log(trie.search("ale"))
+console.log(trie.search("band"))

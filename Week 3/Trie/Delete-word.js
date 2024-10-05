@@ -21,6 +21,20 @@ class Trie {
         curr.endOfWord = true
     }
 
+    // print word as array
+
+    printWords(node = this.root, currWord = "", res = []) {
+        if (node.endOfWord) {
+            res.push(currWord)
+        }
+        for (let char in node.children) {
+            this.printWords(node.children[char], currWord + char, res)
+        }
+        return res
+    }
+
+    // delete operation
+
     delete(word) {
         this.deleteHelper(this.root, word, 0)
     }
@@ -34,9 +48,7 @@ class Trie {
             return Object.keys(node.children).length === 0
         }
         let char = word[index]
-        if (!node.children[char]){
-            return false
-        }
+        if (!node.children[char]) return false
         let deleteChild = this.deleteHelper(node.children[char], word, index + 1)
         if (deleteChild) {
             delete node.children[char]
@@ -46,10 +58,13 @@ class Trie {
     }
 }
 
-const trie = new Trie()
-trie.Insert("catepiller")
-trie.Insert("cat")
-trie.Insert("car")
-trie.Insert("dog")
 
-trie.replace("dog", "dove")
+let trie = new Trie()
+trie.Insert("apple")
+trie.Insert("app")
+trie.Insert("banana")
+trie.Insert("band")
+trie.Insert("bandit")
+
+trie.delete("app")
+console.log(trie.printWords())
