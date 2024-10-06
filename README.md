@@ -27,12 +27,10 @@ This repository contains a collection of **Data Structures** and **Algorithms** 
 - **Tree**: Binary Trees, BSTs, AVL Trees, and tree traversal methods.
 - **Trie**: Prefix trees, used for storing strings in an efficient way.
 
----
-
 ## How to Use This Repository
 
 ### Prerequisites
-- Basic knowledge of programming in JavaScript or TypeScript.
+- Basic knowledge of programming in JavaScript.
 - Node.js installed on your system.
 
 ### Installation
